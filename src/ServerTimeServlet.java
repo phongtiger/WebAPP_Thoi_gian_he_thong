@@ -18,10 +18,26 @@ public class ServerTimeServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
         writer.println("<html>");
 
-        Date today = new Date();
-        SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy");
-        String strDate = formatter.format(today);
-        writer.println("<h1>" + strDate + "</h1>");
-        writer.println("</html>");
+        Date date = new Date();
+        SimpleDateFormat formatter = new SimpleDateFormat("MM/dd/yyyy");
+        String strDate = formatter.format(date);
+        writer.println("Date Format with MM/dd/yyyy: " + strDate +"<br>");
+
+        formatter = new SimpleDateFormat("dd-M-yyyy hh:mm:ss");
+        strDate = formatter.format(date);
+        writer.println("Date Format with dd-M-yyyy hh:mm:ss: " + strDate+"<br>");
+
+        formatter = new SimpleDateFormat("dd MMMM yyyy");
+        strDate = formatter.format(date);
+        writer.println("Date Format with dd MMMM yyyy: " + strDate+"<br>");
+
+        formatter = new SimpleDateFormat("dd MMMM yyyy zzzz");
+        strDate = formatter.format(date);
+        writer.println("Date Format with dd MMMM yyyy zzzz: " + strDate+"<br>");
+
+        formatter = new SimpleDateFormat("E, dd MMM yyyy HH:mm:ss z");
+        strDate = formatter.format(date);
+        writer.println("Date Format with E, dd MMM yyyy HH:mm:ss z: "
+                + strDate+"<br>");
     }
 }
